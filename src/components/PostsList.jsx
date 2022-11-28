@@ -4,11 +4,12 @@ import { selectAllPosts } from "../redux/feature/posts/postsSlice"
 
 const PostsList = () => {
   const posts = useSelector(selectAllPosts)
+  console.log(posts);
   const renderedList = posts.map(post =>{
     return(
       <article key={post.id}>
         <h3>{post.title}</h3>
-        <p>{post.description.substring(0,100)}</p>
+        <p>{post.content}</p>
       </article>
     )
   })
