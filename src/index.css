@@ -21,7 +21,7 @@ textarea,
 button,
 select {
   font: inherit;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   border-radius:5px;
   padding: 10px;
 }
@@ -49,10 +49,19 @@ section {
 article {
   margin: 0.5em 0.5em 0.5em 0;
   border: 1px solid whitesmoke;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 10px;
   padding: 1em;
   -webkit-box-shadow: 0 0 10px #fff;
         box-shadow: 0 0 10px #fff;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5px;
+  
 }
 
 form {
@@ -60,6 +69,10 @@ form {
   border: 1px solid whitesmoke;
   border-radius: 10px;
   padding: 1em;
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -71,11 +84,6 @@ p {
   line-height: 1.4;
   font-size: 1.2rem;
   margin: 0.5em 0;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
 }
 
 .postCredit {
