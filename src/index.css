@@ -30,12 +30,12 @@ textarea {
   resize: none;
 }
 
-button {
+/* button {
   width: 50%;
   margin: auto;
   padding: 15px;
   cursor: pointer;
-}
+} */
 
 main {
   max-width: 500px;
@@ -91,14 +91,10 @@ p {
 }
 
 .reactionButton {
+  cursor: pointer;
   margin: 0 0.25em 0 0;
   background: transparent;
   border: none;
   color: whitesmoke;
   font-size: 1rem;
 }
-
-/* #postformandList {
-  display: flex;
-  flex-direction: column;
-} */
