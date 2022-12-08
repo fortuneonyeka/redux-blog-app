@@ -4,10 +4,8 @@ import AddForm from "./redux/feature/posts/AddForm";
 function App() {
   return (
     <div className="App">
-      
-        <AddForm />
-        <PostsList />
-    
+      <AddForm />
+      <PostsList />
     </div>
   );
 }
