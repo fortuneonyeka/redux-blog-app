@@ -1,20 +1,26 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPosts } from "./postsSlice";
+import { addNewPost } from "./postsSlice";
 import { selectAllUsers } from "../users/usersSlice";
 
 const AddForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [userId, setUserId] = useState("");
+  const [addRequestStatus, setUAddRequestStatus] = useState("idle");
   const [titleErr, setTitleErr] = useState("");
   const [contentErr, setContentErr] = useState("");
+
+
+
   const dispatch = useDispatch();
   const users = useSelector(selectAllUsers)
 
   const onTitleChanged = (e) => {setTitle(e.target.value);};
   const onAuthorChanged = (e) => {setUserId(e.target.value);};
   const onContentChanged = (e) => {setContent(e.target.value);};
+
+  const canSave = [title,content,userId].every(Boolean) && addRequestStatus === "idle";
 
   const onSavePost = () => {
     let valid = true;
@@ -30,12 +36,21 @@ const AddForm = () => {
       valid = false;
     }
 
-    if (valid && title && content) {
-      dispatch(addPosts(title, content, userId));
+    if (valid && canSave) {
+     try {
+        setUAddRequestStatus("pending")
+        dispatch(addNewPost({title,body: content, userId})).unwrap()
       setTitle("");
       setContent("");
+      setUserId("");
       setContentErr("");
       setTitleErr("");
+     } catch (err) {
+      console.error("Failed to save post", err)
+     } finally {
+      setUAddRequestStatus("idle")
+     }
+     
     }
   };
 
@@ -45,7 +60,7 @@ const AddForm = () => {
     paddingBottom: "20px",
   };
 
-  const canSave = Boolean(title) && Boolean(content) && Boolean(userId)
+ 
   
   const usersOptions = users.map(user => (
     <option key={user.id} value={user.id}>
