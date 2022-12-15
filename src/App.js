@@ -3,7 +3,6 @@ import AddForm from "./redux/feature/posts/AddForm";
 import SinglePostPage from "./redux/feature/posts/SinglePostPage";
 import Layout from "./components/Layout";
 import About from "./components/About";
-
 import {Routes, Route} from "react-router-dom"
 
 function App() {

@@ -48,10 +48,7 @@ section {
 
 article {
   margin: 0.5em 0.5em 0.5em 0;
-  border: 1px solid whitesmoke;
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 700px;
   border-radius: 10px;
   padding: 1em;
   -webkit-box-shadow: 0 0 10px #fff;
@@ -111,6 +108,9 @@ header {
   color: whitesmoke;
   position: sticky;
   margin-bottom: 30px;
+  border-radius:6px;
+  -webkit-box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 10px #fff;
 }
 
 nav {
