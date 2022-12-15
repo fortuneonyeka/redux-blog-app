@@ -2,7 +2,7 @@ import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
 import { sub } from "date-fns";
 import axios from "axios";
 
-const POST_URL = "https://jsonplaceholder.typicode.com/posts";
+const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
 
 const initialState = {
   posts: [],
@@ -11,17 +11,27 @@ const initialState = {
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
-  const response = await axios.get(POST_URL);
+  const response = await axios.get(POSTS_URL);
   return response.data;
 });
 
 export const addNewPost = createAsyncThunk(
   "posts/addNewPost",
   async (initialPost) => {
-    const response = await axios.post(POST_URL, initialPost);
+    const response = await axios.post(POSTS_URL, initialPost);
     return response.data;
   }
 );
+
+export const updatePost = createAsyncThunk("posts/updatePost", async (initialPost) => {
+const {id} = initialPost;
+try {
+  const response = await axios.put(`${POSTS_URL}/${id}`, initialPost)
+  return response.data
+} catch (err) {
+  return err.message
+}
+})
 
 export const postsSlice = createSlice({
   name: "posts",
@@ -112,7 +122,18 @@ export const postsSlice = createSlice({
         };
         console.log(action.payload);
         state.posts.push(action.payload);
-      });
+      })
+      .addCase(updatePost.fulfilled,(state, action) => {
+        if (!action.payload.id) {
+          console.log("Update could not be completed");
+          console.log(action.payload);
+          return
+        }
+        const {id} = action.payload
+        action.payload.date = new Date().toISOString()
+        const posts = state.posts.filter(post => post.id !== id)
+        state.posts = [...posts, action.payload]
+      })
   },
 });
 
@@ -122,5 +143,5 @@ export const getPostsError = (state) => state.posts.error;
 export const selectPostById = (state, postId) =>
   state.posts.posts.find((post) => post.id === postId);
 
-export const { addPosts, addReactions } = postsSlice.actions;
+export const { addPosts, addReactions,deletePost } = postsSlice.actions;
 export default postsSlice.reducer;
