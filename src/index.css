@@ -22,7 +22,7 @@ button,
 select {
   font: inherit;
   margin-bottom: 0.5em;
-  border-radius:5px;
+  border-radius:8px;
   padding: 10px;
 }
 
@@ -163,6 +163,6 @@ main {
 }
 
 .deleteButton {
-  background-color: palevioletred;
+  background-color: red;
   color: white;
 }

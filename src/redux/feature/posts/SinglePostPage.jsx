@@ -23,7 +23,6 @@ const {postId} = useParams()
       <p>{post.body}</p>
       <p className="postCredit">
           <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
-          <Link to={`/post/delete/${post.id}`}>Delete Post</Link>
           <PostAuthor userId={post.userId}/>
           <TimeAgo timeStamp={post.date}/>
       </p>
