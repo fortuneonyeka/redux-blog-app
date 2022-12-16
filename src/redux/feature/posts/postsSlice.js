@@ -4,10 +4,6 @@ import axios from "axios";
 
 const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
 
-const postsAdapter = createEntityAdapter({
-  sortComparer: (a, b) => b.date.localeCompare(a.date)
-})
-
 const initialState = {
   posts: [],
   status: "idle",
