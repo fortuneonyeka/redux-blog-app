@@ -64,10 +64,7 @@ const EditFormPost = () => {
           setRequestStatus('pending')
           dispatch(deletePost({ id: post.id })).unwrap()
 
-          setTitle('')
-          setContent('')
-          setUserId('')
-          navigate('/')
+          
       } catch (err) {
           console.error('Failed to delete the post', err)
       } finally {
