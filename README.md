@@ -4,11 +4,11 @@
 
 
 
-![Screenshot](src/assets/images/home.png)
-![Screenshot](src/assets/images/add.png)
-![Screenshot](src/assets/images/edit.png)
-![Screenshot](src/assets/images/post.png)
-![Screenshot](src/assets/images/user-posts.png)
+![Screenshot](src/Assets/images/home.png)
+![Screenshot](src/Assets/images/add.png)
+![Screenshot](src/Assets/images/edit.png)
+![Screenshot](src/Assets/images/user-posts.png)
+![Screenshot](src/Assets/images/post.png)
 
 ## Built With
 
