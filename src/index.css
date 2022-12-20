@@ -16,6 +16,11 @@ body {
   padding: 0 10% 10%;
 }
 
+.app-title {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
 input,
 textarea,
 button,
@@ -106,6 +111,7 @@ header {
   align-items: flex-start;
   background-color: purple;
   color: whitesmoke;
+  top: 0;
   position: sticky;
   margin-bottom: 30px;
   border-radius:6px;
@@ -125,6 +131,7 @@ nav ul {
 nav ul li {
   display: inline-block;
   margin-right: 1rem;
+  text-decoration: none;
 }
 
 nav a, nav a:visited {
@@ -166,3 +173,23 @@ main {
   background-color: red;
   color: white;
 }
+
+  .users {
+   list-style: none;
+   color: white;
+   text-decoration: none;
+  }
+
+  .users:visited {
+    color: blue;
+  }
+
+  .user-post-titles{
+    text-decoration: none;
+    color: whitesmoke;
+    
+  }
+  .user-post-titles:visited{
+   
+    color: gold;
+  }
